@@ -7,8 +7,8 @@ html,body {
 }
 
 #main {
-  width: 100%;
   height: 100%;
+  display:flex;
 }
 #menu {
   height: 100%;
@@ -20,9 +20,10 @@ html,body {
 }
 #content {
   padding: 10px;
-  float: left;
   height: 100%;
   width: max-content;
+  background-color:lightgrey;
+  flex-grow:1;
 }
 
 .menuitem p {
