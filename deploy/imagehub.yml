@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: leaves
+  labels:
+    app: leaves
+spec:
+  serviceName: leaves
+  replicas: 1
+  selector:
+    matchLabels:
+      app: leaves
+  template:
+    metadata:
+      labels:
+        app: leaves
+    spec:
+      containers:
+      - name: leaves
+        image: leaves
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+          name: leaves
+          protocol: TCP
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: leaves
+spec:
+  selector:
+    app: leaves
+  type: ClusterIP
+  ports:
+  - name: leaves
+    protocol: TCP
+    port: 8080
+    targetPort: 8080

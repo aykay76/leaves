@@ -1,0 +1,30 @@
+* {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+html,body {
+  margin: 0px;
+  height: 100%;
+}
+
+#main {
+  width: 100%;
+  height: 100%;
+}
+#menu {
+  height: 100%;
+  width: 100px;
+  background-color: teal;
+  padding: 5px;
+  text-align: center;
+  float: left;
+}
+#content {
+  padding: 10px;
+  float: left;
+  height: 100%;
+  width: max-content;
+}
+
+.menuitem p {
+  cursor: grab;
+}
