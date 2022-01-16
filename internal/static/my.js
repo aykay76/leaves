@@ -29,6 +29,9 @@ function selectMenu() {
     })
     .then(content => {
         let newdiv = document.createElement('div')
+        newdiv.classList.add('leaf')
+        newdiv.style.width = (window.innerWidth - 150) + 'px'
+        newdiv.style.height = '100%'
         newdiv.innerHTML = content
         document.getElementById('mainleaf').appendChild(newdiv)
 
@@ -40,6 +43,11 @@ function selectMenu() {
 
 function clickLeaf() {
     window.event.cancelBubble = true
+
+    console.dir(document.getElementById('mainleaf'))
+    let width = document.getElementById('mainleaf').clientWidth
+    console.log(width)
+
     let href = window.event.target.getAttribute('content')
     fetch(`/${href}`)
     .then(response => {
@@ -47,6 +55,9 @@ function clickLeaf() {
     })
     .then(content => {
         let newdiv = document.createElement('div')
+        newdiv.classList.add('leaf')
+        newdiv.style.width = (window.innerWidth - 100) + 'px'
+        newdiv.style.height = '100%'
         newdiv.innerHTML = content
         document.getElementById('mainleaf').appendChild(newdiv)
     })
@@ -59,3 +70,10 @@ function clickLeaf() {
 Array.from(document.getElementsByClassName('menuitem')).forEach(el => {
     el.addEventListener('click', () => { selectMenu() })
 })
+
+window.addEventListener('resize', () => {
+    console.log(window.innerWidth)
+    Array.from(document.getElementsByClassName('leaf')).forEach(el => {
+        el.setAttribute('width', window.innerWidth)
+    })
+}, true)
