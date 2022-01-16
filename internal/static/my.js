@@ -18,10 +18,11 @@
 function selectMenu() {
     let content = window.event.target.getAttribute('content')
 
-    let container = document.getElementById('mainleaf')
-    while (container.firstChild) {
-        container.removeChild(container.lastChild)
-    }
+    // could remove everything, or add to the home page
+    // let container = document.getElementById('mainleaf')
+    // while (container.firstChild) {
+    //     container.removeChild(container.lastChild)
+    // }
 
     fetch(`/${content}`)
     .then(response => {
@@ -74,6 +75,10 @@ Array.from(document.getElementsByClassName('menuitem')).forEach(el => {
 window.addEventListener('resize', () => {
     console.log(window.innerWidth)
     Array.from(document.getElementsByClassName('leaf')).forEach(el => {
-        el.setAttribute('width', window.innerWidth)
+        el.style.width = window.innerWidth + 'px'
     })
 }, true)
+
+Array.from(document.getElementsByClassName('leaf')).forEach(el => {
+    el.style.width = window.innerWidth + 'px'
+})

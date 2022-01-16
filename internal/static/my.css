@@ -7,10 +7,6 @@ html,body {
   height: 100%;
 }
 
-#main {
-  height: 100%;
-}
-
 #menu {
   height: 100%;
   width: 100px;
@@ -28,7 +24,6 @@ html,body {
 }
 
 .leaf {
-  padding: 10px;
   height: 100%;
   background-color:lightgrey;
   display: inline-block;
