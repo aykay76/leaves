@@ -17,23 +17,38 @@
 
 function selectMenu() {
     let content = window.event.target.getAttribute('content')
-    console.log(content)
 
-    let container = document.getElementById('content')
+    let container = document.getElementById('mainleaf')
     while (container.firstChild) {
         container.removeChild(container.lastChild)
     }
 
-    fetch(`/${content}.html`)
+    fetch(`/${content}`)
     .then(response => {
-        console.log(response)
         return response.text()
     })
     .then(content => {
-        console.log(content)
-        let alan = document.createElement('div')
-        alan.innerHTML = content
-        document.getElementById('content').appendChild(alan)
+        let newdiv = document.createElement('div')
+        newdiv.innerHTML = content
+        document.getElementById('mainleaf').appendChild(newdiv)
+
+        Array.from(newdiv.getElementsByTagName('a')).forEach(el => {
+            el.addEventListener('click', () => { clickLeaf() })
+        })
+    })
+}
+
+function clickLeaf() {
+    window.event.cancelBubble = true
+    let href = window.event.target.getAttribute('content')
+    fetch(`/${href}`)
+    .then(response => {
+        return response.text()
+    })
+    .then(content => {
+        let newdiv = document.createElement('div')
+        newdiv.innerHTML = content
+        document.getElementById('mainleaf').appendChild(newdiv)
     })
 }
 

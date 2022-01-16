@@ -18,12 +18,14 @@ html,body {
   text-align: center;
   float: left;
 }
-#content {
+
+.leaf {
   padding: 10px;
   height: 100%;
   width: max-content;
   background-color:lightgrey;
-  flex-grow:1;
+  display: flex;
+  flex:1 1 auto;
 }
 
 .menuitem p {
