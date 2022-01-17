@@ -1,4 +1,4 @@
-function selectMenu() {
+function addToBreadcrumb() {
     let content = window.event.target.getAttribute('content')
     let replace = window.event.target.getAttribute('replace')
 
@@ -21,16 +21,16 @@ function selectMenu() {
         newdiv.innerHTML = content
         document.getElementById('leaf-container').appendChild(newdiv)
 
-        Array.from(newdiv.getElementsByTagName('a')).forEach(el => {
-            el.addEventListener('click', () => { selectMenu() })
+        Array.from(document.getElementsByClassName('menuitem')).forEach(el => {
+            el.addEventListener('click', () => { addToBreadcrumb() })
         })
-
+        
         newdiv.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"})
     })
 }
 
 Array.from(document.getElementsByClassName('menuitem')).forEach(el => {
-    el.addEventListener('click', () => { selectMenu() })
+    el.addEventListener('click', () => { addToBreadcrumb() })
 })
 
 window.addEventListener('resize', () => {
