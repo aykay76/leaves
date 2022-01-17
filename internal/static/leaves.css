@@ -3,30 +3,30 @@
 }
 
 html,body {
-  margin: 0px;
   height: 100%;
+  margin: 0;
 }
 
 #menu {
   height: 100%;
   width: 100px;
   background-color: teal;
-  padding: 5px;
   text-align: center;
   float: left;
 }
 
-#mainleaf
+#leaf-container
 {
-  white-space: nowrap;
+  display: flex;
+  flex-wrap: nowrap; 
+  overflow: auto;
   height: 100%;
-  overflow-x: scroll;
 }
 
 .leaf {
   height: 100%;
   background-color:lightgrey;
-  display: inline-block;
+  flex: 0 0 auto;
 }
 
 .menuitem p {
