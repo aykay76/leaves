@@ -22,27 +22,8 @@ function selectMenu() {
         document.getElementById('leaf-container').appendChild(newdiv)
 
         Array.from(newdiv.getElementsByTagName('a')).forEach(el => {
-            el.addEventListener('click', () => { clickLeaf() })
+            el.addEventListener('click', () => { selectMenu() })
         })
-
-        newdiv.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"})
-    })
-}
-
-function clickLeaf() {
-    window.event.cancelBubble = true
-
-    let href = window.event.target.getAttribute('content')
-    fetch(`/${href}`)
-    .then(response => {
-        return response.text()
-    })
-    .then(content => {
-        let newdiv = document.createElement('div')
-        newdiv.classList.add('leaf')
-        newdiv.style.width = window.innerWidth + 'px'
-        newdiv.innerHTML = content
-        document.getElementById('leaf-container').appendChild(newdiv)
 
         newdiv.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"})
     })
