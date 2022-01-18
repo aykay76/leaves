@@ -5,6 +5,7 @@
 html,body {
   height: 100%;
   margin: 0;
+  overflow: hidden;
 }
 
 #menu {
@@ -31,4 +32,8 @@ html,body {
 
 .menuitem p {
   cursor: grab;
+}
+
+#crumb-trail {
+  padding: 5px;
 }

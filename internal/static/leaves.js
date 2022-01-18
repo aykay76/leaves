@@ -21,7 +21,7 @@ function addToBreadcrumb() {
         newdiv.innerHTML = content
         document.getElementById('leaf-container').appendChild(newdiv)
 
-        Array.from(document.getElementsByClassName('menuitem')).forEach(el => {
+        Array.from(newdiv.getElementsByClassName('menuitem')).forEach(el => {
             el.addEventListener('click', () => { addToBreadcrumb() })
         })
         
