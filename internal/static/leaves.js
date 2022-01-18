@@ -18,6 +18,7 @@ function addToBreadcrumb() {
         let newdiv = document.createElement('div')
         newdiv.classList.add('leaf')
         newdiv.style.width = window.innerWidth + 'px'
+        newdiv.style.height = (window.innerHeight - 30) + 'px'
         newdiv.innerHTML = content
         document.getElementById('leaf-container').appendChild(newdiv)
 
@@ -25,7 +26,7 @@ function addToBreadcrumb() {
             el.addEventListener('click', () => { addToBreadcrumb() })
         })
         
-        newdiv.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"})
+        newdiv.scrollIntoView({behavior: "smooth", block: 'end' })
     })
 }
 
@@ -43,3 +44,5 @@ window.addEventListener('resize', () => {
 Array.from(document.getElementsByClassName('leaf')).forEach(el => {
     el.style.width = window.innerWidth + 'px'
 })
+
+document.getElementById('leaf-container').style.height = (window.innerHeight - 30) + 'px'
