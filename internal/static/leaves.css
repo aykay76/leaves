@@ -5,7 +5,6 @@
 html,body {
   height: 100%;
   margin: 0;
-  /* overflow: hidden; */
 }
 
 #page {
@@ -22,7 +21,8 @@ html,body {
 
 #leaf-container {
   display: flex;
-  flex-wrap: nowrap; 
+  flex-wrap: nowrap;
+  padding-top: 30px;
 }
 
 .leaf {
@@ -37,4 +37,5 @@ html,body {
 
 #crumb-trail {
   height: 30px;
+  position: fixed;
 }
