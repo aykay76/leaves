@@ -38,4 +38,5 @@ html,body {
 #crumb-trail {
   height: 30px;
   position: fixed;
+  padding: 5px;
 }
