@@ -30,6 +30,10 @@ function addToBreadcrumb() {
         newdiv.scrollIntoView({behavior: "smooth", block: 'end' })
 
         // TODO: check if not first crumb, add separator
+        let spacer = document.createElement('span')
+        spacer.innerText = ">"
+        document.getElementById('crumb-trail').appendChild(spacer)
+
         let crumb = document.createElement('span')
         crumb.classList.add('crumb')
         crumb.innerText = content
