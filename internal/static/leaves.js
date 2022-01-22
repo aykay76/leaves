@@ -31,6 +31,7 @@ function addToBreadcrumb() {
 
         // TODO: check if not first crumb, add separator
         let spacer = document.createElement('span')
+        spacer.classList.add('crumb-spacer')
         spacer.innerText = ">"
         document.getElementById('crumb-trail').appendChild(spacer)
 
