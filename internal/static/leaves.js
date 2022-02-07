@@ -1,4 +1,4 @@
-function addToBreadcrumb() {
+function addCrumbToTrail() {
     // TODO: make crumb text an attribute
     let content = window.event.target.getAttribute('content')
     let replace = window.event.target.getAttribute('replace')
@@ -24,16 +24,19 @@ function addToBreadcrumb() {
         document.getElementById('leaf-container').appendChild(newdiv)
 
         Array.from(newdiv.getElementsByClassName('menuitem')).forEach(el => {
-            el.addEventListener('click', () => { addToBreadcrumb() })
+            el.addEventListener('click', () => { addCrumbToTrail() })
         })
         
         newdiv.scrollIntoView({behavior: "smooth", block: 'end' })
 
-        // TODO: check if not first crumb, add separator
         let spacer = document.createElement('span')
         spacer.classList.add('crumb-spacer')
         spacer.innerText = ">"
         document.getElementById('crumb-trail').appendChild(spacer)
+
+        // TODO: keep a stack of crumbs
+        // make the top crumb a link to a function that will remove everything to that point
+        // then as the trail builds each crumb will remove an increasing number of leaves to revert to that point
 
         let crumb = document.createElement('span')
         crumb.classList.add('crumb')
@@ -42,8 +45,12 @@ function addToBreadcrumb() {
     })
 }
 
+function removeCrumbsFromTrail() {
+
+}
+
 Array.from(document.getElementsByClassName('menuitem')).forEach(el => {
-    el.addEventListener('click', () => { addToBreadcrumb() })
+    el.addEventListener('click', () => { addCrumbToTrail() })
 })
 
 window.addEventListener('resize', () => {
